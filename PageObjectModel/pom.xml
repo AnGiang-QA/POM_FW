@@ -108,14 +108,15 @@
 			</plugin>
 		</plugins>
 		
-	<testResources>
-      <testResource>
-        <directory>src/test/resources/phptravels/w2a/properties</directory>
-        <includes>
-          <include>log4j.properties</include>
-        </includes>
-      </testResource>
-    </testResources>
+		<testResources>
+      		<testResource>
+        		<directory>src/test/resources/phptravels/w2a/properties</directory>
+        		<includes>
+          			<include>log4j.properties</include>
+        		</includes>
+      		</testResource>
+    	</testResources>
+    	
 	</build>
 
 </project>

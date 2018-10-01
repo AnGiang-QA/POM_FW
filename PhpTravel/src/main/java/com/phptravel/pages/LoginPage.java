@@ -4,35 +4,35 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.phptravel.core.DriverContext;
 import com.phptravel.core.DriverInit;
 
-public class LoginPage {
+public class LoginPage extends DriverContext{
 	
 	WebDriver driver = DriverInit.getDriver();
 
-	By cssEmail = new By.ByCssSelector("#loginfrm input[name='username']");
-	WebElement txtEmail = driver.findElement(cssEmail);
+	By txtEmail = new By.ByCssSelector("#loginfrm input[name='username']");
 	
-	By cssPassword = new By.ByCssSelector("#loginfrm input[name='password']");
-	WebElement txtPassword = driver.findElement(cssPassword);
+	By txtPassword = new By.ByCssSelector("#loginfrm input[name='password']");
 
-	By cssLogin = new By.ByCssSelector("#loginfrm input[name='password']");
+	By btnLogin = new By.ByCssSelector("#loginfrm input[name='password']");
 	
 	public LoginPage() {
 //		driver = DriverInit.getDriver();
 	}
-
-	WebElement btnLogin = driver.findElement(cssLogin);
 	
 	public AccountPage login(String email, String password) {
-		txtEmail.sendKeys(email);
 		
-		txtPassword.sendKeys(password);
-		
-		btnLogin.click();
+		driver.findElement(txtEmail).sendKeys(email);
+		driver.findElement(txtPassword).sendKeys(email);
+		driver.findElement(btnLogin).click();
 		
 		return new AccountPage();
-	}	
+	}
+	
+	public void signUp() {
+		
+	}
 	
 
 }

@@ -1,26 +1,27 @@
 package com.phptravel.pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 import com.phptravel.core.DriverContext;
-import com.phptravel.core.DriverInit;
 
 public class LandingPage extends DriverContext{
 
-	By cssMyaccount = new By.ByCssSelector("#collapse #li_myaccount");
-	WebElement btnMyaccount = driver.findElement(cssMyaccount);
+	By btnMyaccount = new By.ByCssSelector("#collapse #li_myaccount");
 	
-	By cssLogin = new By.ByCssSelector("#collapse #li_myaccount a[href='https://www.phptravels.net/login']");
-	WebElement btnLogin = driver.findElement(cssLogin);
+	By btnLogin = new By.ByCssSelector("#collapse #li_myaccount a[href='https://www.phptravels.net/login']");
+	
+	By lnkHotelPage = new By.ByCssSelector("#collapse a[title='Hotels']");
+	
+	By txtHotelName = new By.ByCssSelector("#select2-drop input");
+	
+	By btnSeach = new By.ByCssSelector("#HOTELS div.search-button button");
 	
 	public LandingPage() {
 	}
 	
 	public LoginPage goToLoginPage(){
-		btnMyaccount.click();
-		btnLogin.click();
+		driver.findElement(btnMyaccount).click();
+		driver.findElement(btnLogin).click();
 		return new LoginPage();
 		
 	}
@@ -28,5 +29,15 @@ public class LandingPage extends DriverContext{
 	public String getLandingPageTitle() {
 		return driver.getTitle();
 	}
+	
+	public HotelPage goToHotelPage() {
+		driver.findElement(lnkHotelPage).click();
+		return new HotelPage();
+	}
+	
+	public void enterHotelName(String Name) {
+		driver.findElement(txtHotelName).sendKeys(Name);
+	}
+	
 
 }
